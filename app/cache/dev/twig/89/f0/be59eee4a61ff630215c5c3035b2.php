@@ -136,7 +136,10 @@ class __TwigTemplate_89f0be59eee4a61ff630215c5c3035b2 extends Twig_Template
         // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_about"), "html", null, true);
         echo "\">About</a></li>
-           \t\t\t <li><a href=\"#\">Contact</a></li>
+           \t\t\t <li><a href=\"";
+        // line 29
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_contact"), "html", null, true);
+        echo "\">Contact</a></li>
                             </ul>
                         </nav>
                     ";

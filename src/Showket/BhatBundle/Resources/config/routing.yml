@@ -1,0 +1,20 @@
+# src/Showket/Bhat/Resources/config/routing.yml
+ShowketBhatBundle_homepage:
+    pattern:  /
+    defaults: { _controller: ShowketBhatBundle:My:index }
+    requirements:
+        _method:  GET
+
+ShowketBhatBundle_movies:
+    pattern:  /movies
+    defaults: { _controller: ShowketBhatBundle:My:movies }
+    requirements:
+        _method:  GET
+
+
+ShowketBhatBundle_song:
+    pattern:  /song
+    defaults: { _controller: ShowketBhatBundle:My:song }
+    requirements:
+        _method:  GET
+

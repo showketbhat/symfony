@@ -135,6 +135,39 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // ShowketBhatBundle_homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_ShowketBhatBundle_homepage;
+            }
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'ShowketBhatBundle_homepage');
+            }
+            return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::indexAction',  '_route' => 'ShowketBhatBundle_homepage',);
+        }
+        not_ShowketBhatBundle_homepage:
+
+        // ShowketBhatBundle_movies
+        if ($pathinfo === '/movies') {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_ShowketBhatBundle_movies;
+            }
+            return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::moviesAction',  '_route' => 'ShowketBhatBundle_movies',);
+        }
+        not_ShowketBhatBundle_movies:
+
+        // ShowketBhatBundle_song
+        if ($pathinfo === '/song') {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_ShowketBhatBundle_song;
+            }
+            return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::songAction',  '_route' => 'ShowketBhatBundle_song',);
+        }
+        not_ShowketBhatBundle_song:
+
         // BloggerBlogBundle_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
@@ -157,6 +190,16 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::aboutAction',  '_route' => 'BloggerBlogBundle_about',);
         }
         not_BloggerBlogBundle_about:
+
+        // BloggerBlogBundle_contact
+        if ($pathinfo === '/contact') {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_BloggerBlogBundle_contact;
+            }
+            return array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::contactAction',  '_route' => 'BloggerBlogBundle_contact',);
+        }
+        not_BloggerBlogBundle_contact:
 
         // AcmeHelloBundle_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+?)$#xs', $pathinfo, $matches)) {

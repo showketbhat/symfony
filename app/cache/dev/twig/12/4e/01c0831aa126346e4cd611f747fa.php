@@ -26,7 +26,7 @@ class __TwigTemplate_124e01c0831aa126346e4cd611f747fa extends Twig_Template
     public function block_sidebar($context, array $blocks = array())
     {
         // line 5
-        echo "    Sidebar content
+        echo "    Sidebar content Is here In Layout
 ";
     }
 

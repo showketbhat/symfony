@@ -9,6 +9,8 @@ class __TwigTemplate_e220193555524df79156528c8110d227 extends Twig_Template
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
+            'navigation' => array($this, 'block_navigation'),
+            'test' => array($this, 'block_test'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,9 +32,41 @@ class __TwigTemplate_e220193555524df79156528c8110d227 extends Twig_Template
     }
 
     // line 6
-    public function block_body($context, array $blocks = array())
+    public function block_navigation($context, array $blocks = array())
     {
         // line 7
+        echo "\t<nav>
+\t    <ul class=\"navigation\">
+\t\t <li><a href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage"), "html", null, true);
+        echo "\">Home</a></li>
+\t\t <li><a href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_about"), "html", null, true);
+        echo "\">About</a></li>
+\t\t <li><a href=\"#\">Contact</a></li>
+\t\t <li><a href=\"#\">Contact</a></li>
+\t\t <li><a href=\"#\">Contact</a></li>
+\t\t <li><a href=\"#\">Contact</a></li>
+\t\t <li><a href=\"#\">Contact</a></li>
+\t    </ul>
+\t</nav>
+";
+    }
+
+    // line 40
+    public function block_test($context, array $blocks = array())
+    {
+        // line 41
+        echo "\t\tI dont know what to write here but i expect it come after the body block..Lets See
+\t";
+    }
+
+    // line 23
+    public function block_body($context, array $blocks = array())
+    {
+        // line 24
         echo "    <header>
         <h1>About symblog</h1>
     </header>
@@ -47,6 +81,14 @@ class __TwigTemplate_e220193555524df79156528c8110d227 extends Twig_Template
         lacus nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
         posuere cubilia Curae.</p>
     </article>
+    
+<div class=\"new-col\">
+        ";
+        // line 40
+        $this->displayBlock('test', $context, $blocks);
+        // line 43
+        echo "</div>
+
 ";
     }
 

@@ -32,8 +32,12 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_home' => true,
        '_configurator_step' => true,
        '_configurator_final' => true,
+       'ShowketBhatBundle_homepage' => true,
+       'ShowketBhatBundle_movies' => true,
+       'ShowketBhatBundle_song' => true,
        'BloggerBlogBundle_homepage' => true,
        'BloggerBlogBundle_about' => true,
+       'BloggerBlogBundle_contact' => true,
        'AcmeHelloBundle_homepage' => true,
     );
 
@@ -153,6 +157,21 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         return array(array (), array (  '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_configurator/final',  ),));
     }
 
+    private function getShowketBhatBundle_homepageRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::indexAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/',  ),));
+    }
+
+    private function getShowketBhatBundle_moviesRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::moviesAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/movies',  ),));
+    }
+
+    private function getShowketBhatBundle_songRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::songAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/song',  ),));
+    }
+
     private function getBloggerBlogBundle_homepageRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::indexAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/',  ),));
@@ -161,6 +180,11 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getBloggerBlogBundle_aboutRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::aboutAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/about',  ),));
+    }
+
+    private function getBloggerBlogBundle_contactRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::contactAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/contact',  ),));
     }
 
     private function getAcmeHelloBundle_homepageRouteInfo()

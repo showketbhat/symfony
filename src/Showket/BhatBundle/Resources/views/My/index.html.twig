@@ -1,0 +1,16 @@
+{% extends 'ShowketBhatBundle::layout.html.twig' %}
+
+{% block navigation %}
+	<h3>These Are the links to ShowketBhatBundle Module</h3>
+	<nav>
+	    <ul class="navigation">
+		 <li><a href="{{ path('ShowketBhatBundle_homepage') }}">Home</a></li>
+		 <li><a href="{{ path('ShowketBhatBundle_song') }}">Songs</a></li>
+		 <li><a href="{{ path('ShowketBhatBundle_movies') }}">Movies</a></li>
+	    </ul>
+	</nav>
+{% endblock %}
+
+{% block sidebar %}
+    Showket Content Here
+{% endblock %}

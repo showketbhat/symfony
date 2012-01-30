@@ -9,6 +9,7 @@ class __TwigTemplate_bea758f11fe4a0f2f3fbb0a9b1e1592c extends Twig_Template
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
+            'sidebar' => array($this, 'block_sidebar'),
         );
     }
 
@@ -27,6 +28,14 @@ class __TwigTemplate_bea758f11fe4a0f2f3fbb0a9b1e1592c extends Twig_Template
     {
         // line 5
         echo "    Blog homepage
+";
+    }
+
+    // line 8
+    public function block_sidebar($context, array $blocks = array())
+    {
+        // line 9
+        echo "    Sidebar content in Index file
 ";
     }
 
