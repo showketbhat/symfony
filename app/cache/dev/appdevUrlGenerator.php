@@ -35,6 +35,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'ShowketBhatBundle_homepage' => true,
        'ShowketBhatBundle_movies' => true,
        'ShowketBhatBundle_song' => true,
+       'ShowketBhatBundle_register' => true,
        'BloggerBlogBundle_homepage' => true,
        'BloggerBlogBundle_about' => true,
        'BloggerBlogBundle_contact' => true,
@@ -159,17 +160,22 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getShowketBhatBundle_homepageRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::indexAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/',  ),));
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::indexAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/showket/',  ),));
     }
 
     private function getShowketBhatBundle_moviesRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::moviesAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/movies',  ),));
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::moviesAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/showket/movies',  ),));
     }
 
     private function getShowketBhatBundle_songRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::songAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/song',  ),));
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::songAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/showket/song',  ),));
+    }
+
+    private function getShowketBhatBundle_registerRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::registerAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/showket/register',  ),));
     }
 
     private function getBloggerBlogBundle_homepageRouteInfo()
@@ -184,7 +190,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getBloggerBlogBundle_contactRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::contactAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/contact',  ),));
+        return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::contactAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/contact',  ),));
     }
 
     private function getAcmeHelloBundle_homepageRouteInfo()

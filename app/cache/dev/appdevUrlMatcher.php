@@ -135,38 +135,51 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // ShowketBhatBundle_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_ShowketBhatBundle_homepage;
+        if (0 === strpos($pathinfo, '/showket')) {
+            // ShowketBhatBundle_homepage
+            if (rtrim($pathinfo, '/') === '/showket') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ShowketBhatBundle_homepage;
+                }
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ShowketBhatBundle_homepage');
+                }
+                return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::indexAction',  '_route' => 'ShowketBhatBundle_homepage',);
             }
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'ShowketBhatBundle_homepage');
-            }
-            return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::indexAction',  '_route' => 'ShowketBhatBundle_homepage',);
-        }
-        not_ShowketBhatBundle_homepage:
+            not_ShowketBhatBundle_homepage:
 
-        // ShowketBhatBundle_movies
-        if ($pathinfo === '/movies') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_ShowketBhatBundle_movies;
+            // ShowketBhatBundle_movies
+            if ($pathinfo === '/showket/movies') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ShowketBhatBundle_movies;
+                }
+                return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::moviesAction',  '_route' => 'ShowketBhatBundle_movies',);
             }
-            return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::moviesAction',  '_route' => 'ShowketBhatBundle_movies',);
-        }
-        not_ShowketBhatBundle_movies:
+            not_ShowketBhatBundle_movies:
 
-        // ShowketBhatBundle_song
-        if ($pathinfo === '/song') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_ShowketBhatBundle_song;
+            // ShowketBhatBundle_song
+            if ($pathinfo === '/showket/song') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ShowketBhatBundle_song;
+                }
+                return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::songAction',  '_route' => 'ShowketBhatBundle_song',);
             }
-            return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::songAction',  '_route' => 'ShowketBhatBundle_song',);
+            not_ShowketBhatBundle_song:
+
+            // ShowketBhatBundle_register
+            if ($pathinfo === '/showket/register') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ShowketBhatBundle_register;
+                }
+                return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::registerAction',  '_route' => 'ShowketBhatBundle_register',);
+            }
+            not_ShowketBhatBundle_register:
+
         }
-        not_ShowketBhatBundle_song:
 
         // BloggerBlogBundle_homepage
         if (rtrim($pathinfo, '/') === '') {
@@ -193,8 +206,8 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // BloggerBlogBundle_contact
         if ($pathinfo === '/contact') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_BloggerBlogBundle_contact;
             }
             return array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\PageController::contactAction',  '_route' => 'BloggerBlogBundle_contact',);

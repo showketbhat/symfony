@@ -20,6 +20,11 @@ class MyController extends Controller
 	//echo "Hi I am Showket"; exit;
 	return $this->render('ShowketBhatBundle:My:song.html.twig');
     }
+    
+    public function registerAction(){
+    	//echo "Hi I am Showket"; exit;
+    	return $this->render('ShowketBhatBundle:Register:register.html.twig');
+    }
 
 }
 

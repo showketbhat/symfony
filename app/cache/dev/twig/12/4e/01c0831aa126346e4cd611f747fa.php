@@ -8,6 +8,7 @@ class __TwigTemplate_124e01c0831aa126346e4cd611f747fa extends Twig_Template
         parent::__construct($env);
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
             'sidebar' => array($this, 'block_sidebar'),
         );
     }
@@ -23,10 +24,24 @@ class __TwigTemplate_124e01c0831aa126346e4cd611f747fa extends Twig_Template
     }
 
     // line 4
-    public function block_sidebar($context, array $blocks = array())
+    public function block_stylesheets($context, array $blocks = array())
     {
         // line 5
-        echo "    Sidebar content Is here In Layout
+        echo "    ";
+        $this->displayParentBlock("stylesheets", $context, $blocks);
+        echo "
+    <link href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/bloggerblog/css/blog.css"), "html", null, true);
+        echo "\" type=\"text/css\" rel=\"stylesheet\" />
+";
+    }
+
+    // line 9
+    public function block_sidebar($context, array $blocks = array())
+    {
+        // line 10
+        echo "    Sidebar content
 ";
     }
 

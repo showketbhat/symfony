@@ -20,12 +20,15 @@
             <header id="header">
                 <div class="top">
                     {% block navigation %}
-			<h3>These Are the links to BloggerBlogBundle Module</h3>
+			<h3>These Are the links to ShowketbhatBundle Module</h3>
                         <nav>
                             <ul class="navigation">
-                                 <li><a href="{{ path('BloggerBlogBundle_homepage') }}">Home</a></li>
-           			 <li><a href="{{ path('BloggerBlogBundle_about') }}">About</a></li>
-           			 <li><a href="{{ path('BloggerBlogBundle_contact') }}">Contact</a></li>
+                                 <li><a href="{{ path('ShowketBhatBundle_homepage') }}">Home</a></li>
+           			 <li><a href="{{ path('ShowketBhatBundle_song') }}">Songs</a></li>
+           			 <!-- Above we are giving a routing path -->
+           			 <li><a href="{{ path('ShowketBhatBundle_movies') }}">Movies</a></li>
+           			 <li><a href="{{ path('ShowketBhatBundle_register') }}">Registration</a></li>
+           			 <li><a href="{{ path('BloggerBlogBundle_homepage') }}">Go To Bloger</a></li>
                             </ul>
                         </nav>
                     {% endblock %}

@@ -58,16 +58,16 @@ class __TwigTemplate_89f0be59eee4a61ff630215c5c3035b2 extends Twig_Template
                     ";
         // line 24
         $this->displayBlock('navigation', $context, $blocks);
-        // line 33
+        // line 34
         echo "                </div>
 
 \t\t<hgroup>
 \t\t    <h2>";
-        // line 36
+        // line 37
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h2>
 \t\t    <h3>";
-        // line 37
+        // line 38
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h3>
 \t\t</hgroup>
@@ -75,29 +75,29 @@ class __TwigTemplate_89f0be59eee4a61ff630215c5c3035b2 extends Twig_Template
 
             <section class=\"main-col\">
                 ";
-        // line 42
-        $this->displayBlock('body', $context, $blocks);
         // line 43
+        $this->displayBlock('body', $context, $blocks);
+        // line 44
         echo "            </section>
             <aside class=\"sidebar\">
                 ";
-        // line 45
-        $this->displayBlock('sidebar', $context, $blocks);
         // line 46
+        $this->displayBlock('sidebar', $context, $blocks);
+        // line 47
         echo "            </aside>
 
             <div id=\"footer\">
                 ";
-        // line 49
+        // line 50
         $this->displayBlock('footer', $context, $blocks);
-        // line 52
+        // line 53
         echo "            </div>
         </section>
 
         ";
-        // line 55
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 56
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 57
         echo "    </body>
 </html>
 ";
@@ -132,20 +132,24 @@ class __TwigTemplate_89f0be59eee4a61ff630215c5c3035b2 extends Twig_Template
         // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage"), "html", null, true);
         echo "\">Home</a></li>
-           \t\t\t <li><a href=\"";
+\t\t\t           \t\t\t <li><a href=\"";
         // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_about"), "html", null, true);
         echo "\">About</a></li>
-           \t\t\t <li><a href=\"";
+\t\t\t           \t\t\t <li><a href=\"";
         // line 29
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_contact"), "html", null, true);
         echo "\">Contact</a></li>
+\t\t\t           \t\t\t <li><a href=\"";
+        // line 30
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_homepage"), "html", null, true);
+        echo "\">Go To Showket's Bundle</a></li>
                             </ul>
                         </nav>
                     ";
     }
 
-    // line 36
+    // line 37
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -153,7 +157,7 @@ class __TwigTemplate_89f0be59eee4a61ff630215c5c3035b2 extends Twig_Template
         echo "\">symblog</a>";
     }
 
-    // line 37
+    // line 38
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -161,25 +165,25 @@ class __TwigTemplate_89f0be59eee4a61ff630215c5c3035b2 extends Twig_Template
         echo "\">creating a blog in Symfony2</a>";
     }
 
-    // line 42
+    // line 43
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 45
+    // line 46
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 49
+    // line 50
     public function block_footer($context, array $blocks = array())
     {
-        // line 50
+        // line 51
         echo "                    Symfony2 blog tutorial - created by <a href=\"https://github.com/dsyph3r\">dsyph3r</a>
                 ";
     }
 
-    // line 55
+    // line 56
     public function block_javascripts($context, array $blocks = array())
     {
     }

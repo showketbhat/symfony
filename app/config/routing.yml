@@ -1,6 +1,6 @@
 ShowketBhatBundle:
     resource: "@ShowketBhatBundle/Resources/config/routing.yml"
-    prefix: /
+    prefix: /showket
 
 BloggerBlogBundle:
     resource: "@BloggerBlogBundle/Resources/config/routing.yml"

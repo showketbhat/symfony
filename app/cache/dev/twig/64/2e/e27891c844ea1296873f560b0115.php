@@ -52,20 +52,20 @@ class __TwigTemplate_642ee27891c844ea1296873f560b0115 extends Twig_Template
                     ";
         // line 22
         $this->displayBlock('navigation', $context, $blocks);
-        // line 32
+        // line 35
         echo "                </div>
 \t    </header>
 \t\t <section class=\"main-col\">
         \t        ";
-        // line 35
+        // line 38
         $this->displayBlock('body', $context, $blocks);
-        // line 36
+        // line 39
         echo "\t         </section>
 \t\t <aside class=\"sidebar\">
         \t        ";
-        // line 38
+        // line 41
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 39
+        // line 42
         echo "\t         </aside>
 \t</section>
     </body>
@@ -96,32 +96,41 @@ class __TwigTemplate_642ee27891c844ea1296873f560b0115 extends Twig_Template
     public function block_navigation($context, array $blocks = array())
     {
         // line 23
-        echo "\t\t\t<h3>These Are the links to BloggerBlogBundle Module</h3>
+        echo "\t\t\t<h3>These Are the links to ShowketbhatBundle Module</h3>
                         <nav>
                             <ul class=\"navigation\">
                                  <li><a href=\"";
         // line 26
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_homepage"), "html", null, true);
         echo "\">Home</a></li>
            \t\t\t <li><a href=\"";
         // line 27
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_about"), "html", null, true);
-        echo "\">About</a></li>
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_song"), "html", null, true);
+        echo "\">Songs</a></li>
+           \t\t\t <!-- Above we are giving a routing path -->
            \t\t\t <li><a href=\"";
-        // line 28
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_contact"), "html", null, true);
-        echo "\">Contact</a></li>
+        // line 29
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_movies"), "html", null, true);
+        echo "\">Movies</a></li>
+           \t\t\t <li><a href=\"";
+        // line 30
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_register"), "html", null, true);
+        echo "\">Registration</a></li>
+           \t\t\t <li><a href=\"";
+        // line 31
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage"), "html", null, true);
+        echo "\">Go To Bloger</a></li>
                             </ul>
                         </nav>
                     ";
     }
 
-    // line 35
+    // line 38
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 38
+    // line 41
     public function block_sidebar($context, array $blocks = array())
     {
     }

@@ -17,4 +17,10 @@ ShowketBhatBundle_song:
     defaults: { _controller: ShowketBhatBundle:My:song }
     requirements:
         _method:  GET
+        
+ShowketBhatBundle_register:
+    pattern:  /register
+    defaults: { _controller: ShowketBhatBundle:My:register }
+    requirements:
+        _method:  GET
 
