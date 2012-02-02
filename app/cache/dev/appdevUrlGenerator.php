@@ -175,7 +175,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getShowketBhatBundle_registerRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::registerAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/showket/register',  ),));
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::registerAction',), array (  '_method' => 'GET|POSt',), array (  0 =>   array (    0 => 'text',    1 => '/showket/register',  ),));
     }
 
     private function getBloggerBlogBundle_homepageRouteInfo()

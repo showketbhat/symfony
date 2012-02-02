@@ -1,3 +1,27 @@
+{# src/Showket/BhatBundle/Resources/views/My/register.html.twig #}
 {% extends 'ShowketBhatBundle::layout.html.twig' %}
 
-{% block body %}Here I will Write Code for registration In ShowketBhatBundle (I am in My Folder){% endblock %}
+
+{% block title %}Register{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Contact symblog</h1>
+    </header>
+	<p>Want to contact symblog?</p>
+    <form action="{{ path('ShowketBhatBundle_register') }}" method="post" {{ form_enctype(form) }} >
+        {{ form_errors(form) }}
+
+	<div>{{ form_row(form.f_name) }}</div><p>
+	<div>{{ form_row(form.l_name) }}</div><p>
+	<div>{{ form_row(form.age) }}</div><p>
+	<div>{{ form_row(form.sex) }}</div><p>
+	<div>{{ form_row(form.location) }}</div><p>
+        <div>{{ form_row(form.email) }}</div><p>
+       
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

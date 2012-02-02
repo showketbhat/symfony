@@ -171,8 +171,8 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // ShowketBhatBundle_register
             if ($pathinfo === '/showket/register') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                     goto not_ShowketBhatBundle_register;
                 }
                 return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::registerAction',  '_route' => 'ShowketBhatBundle_register',);
