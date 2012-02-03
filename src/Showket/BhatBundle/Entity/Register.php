@@ -22,24 +22,28 @@ class Register
     protected $location;
     protected $email;
 
-  /*  public static function loadValidatorMetadata(ClassMetadata $metadata)
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        $metadata->addPropertyConstraint('f_name', new NotBlank());
-
+       // $metadata->addPropertyConstraint('f_name', new NotBlank());
+       
+    	$metadata->addPropertyConstraint('f_name', new MaxLength(7));
+    	$metadata->addPropertyConstraint('l_name', new MinLength(10));
         $metadata->addPropertyConstraint('email', new Email(array(
 	    'message' => 'I do not like invalid emails. Please provide a real one!'
 	)));
-	$metadata->addPropertyConstraint('email', new NotBlank());
-
+		//$metadata->addPropertyConstraint('email', new NotBlank());
+/*
         $metadata->addPropertyConstraint('subject', new NotBlank());
-        $metadata->addPropertyConstraint('subject', new MaxLength(7));
+        
 
         $metadata->addPropertyConstraint('body', new MinLength(10));
-    }
   */
+      }
+  
 
     public function getFname()
     {
+    	
         return $this->f_name;
     }
 
@@ -84,7 +88,7 @@ class Register
         return $this->location;
     }
 
-    public function setName($location)
+    public function setLocation($location)
     {
         $this->name = $location;
     }

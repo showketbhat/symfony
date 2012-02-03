@@ -2,8 +2,8 @@
 
 namespace Showket\BhatBundle\Controller;
 
+use Showket\BhatBundle\Form\RegisterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Showket\BhatBundle\Form\EnquiryType;
 use Showket\BhatBundle\Entity\Register;
 
 class MyController extends Controller
@@ -28,7 +28,7 @@ class MyController extends Controller
 	//return $this->render('ShowketBhatBundle:Register:register.html.twig');
 	// src/Blogger/BlogBundle/Controller/PageController.php
 	$register = new Register();
-	$form = $this->createForm(new EnquiryType(), $register);
+	$form = $this->createForm(new RegisterForm(), $register);
 //	$form = $this->createForm(new EnquiryType());
 
 	$request = $this->getRequest();

@@ -28,8 +28,8 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_driver">pdo_mysql</parameter>
-    <parameter key="database_host">localhost</parameter>
-    <parameter key="database_port"></parameter>
+    <parameter key="database_host">127.0.0.1</parameter>
+    <parameter key="database_port">3306</parameter>
     <parameter key="database_name">symfony</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password"></parameter>
@@ -1554,8 +1554,8 @@
     <service id="doctrine.dbal.default_connection" class="stdClass" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
       <argument type="collection">
         <argument key="dbname">symfony</argument>
-        <argument key="host">localhost</argument>
-        <argument key="port"></argument>
+        <argument key="host">127.0.0.1</argument>
+        <argument key="port">3306</argument>
         <argument key="user">root</argument>
         <argument key="password"></argument>
         <argument key="driver">pdo_mysql</argument>
