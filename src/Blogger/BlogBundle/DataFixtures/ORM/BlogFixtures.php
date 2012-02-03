@@ -5,10 +5,11 @@ namespace Blogger\BlogBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Blogger\BlogBundle\Entity\Blog;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class BlogFixtures implements FixtureInterface
 {
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $blog1 = new Blog();
         $blog1->setTitle('A day with Symfony2');
