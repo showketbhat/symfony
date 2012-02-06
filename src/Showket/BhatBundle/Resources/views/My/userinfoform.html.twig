@@ -1,0 +1,24 @@
+{# src/Showket/BhatBundle/Resources/views/My/register.html.twig #}
+{% extends 'ShowketBhatBundle::layout.html.twig' %}
+
+
+{% block title %}UserInfo{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>User Information</h1>
+    </header>
+	<p>Register Urself With Symfony Today?</p>
+    <form action="{{ path('ShowketBhatBundle_registeruser') }}" method="post" {{ form_enctype(form) }} >
+        {{ form_errors(form) }}
+
+	<div>{{ form_row(form.name) }}</div><p>
+	<div>{{ form_row(form.username) }}</div><p>
+        <div>{{ form_row(form.password) }}</div><p>
+       
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

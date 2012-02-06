@@ -1,0 +1,9 @@
+{% extends 'ShowketBhatBundle::layout.html.twig' %}
+
+{% block body %}this is my userinfo html file <p>
+Where Ever U ll Go I am Gonna Follow You <p>
+{% for item in info %}
+ {{ item.id }} 	        Name  = 	{{ item.name }} <p>
+{% endfor %}
+
+{% endblock %}

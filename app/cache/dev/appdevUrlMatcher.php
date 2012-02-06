@@ -179,6 +179,26 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_ShowketBhatBundle_register:
 
+            // ShowketBhatBundle_information
+            if ($pathinfo === '/showket/userinfo') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ShowketBhatBundle_information;
+                }
+                return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\UserinfoController::infoAction',  '_route' => 'ShowketBhatBundle_information',);
+            }
+            not_ShowketBhatBundle_information:
+
+            // ShowketBhatBundle_registeruser
+            if ($pathinfo === '/showket/register_user') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_ShowketBhatBundle_registeruser;
+                }
+                return array (  '_controller' => 'Showket\\BhatBundle\\Controller\\UserinfoController::registerAction',  '_route' => 'ShowketBhatBundle_registeruser',);
+            }
+            not_ShowketBhatBundle_registeruser:
+
         }
 
         // BloggerBlogBundle_homepage

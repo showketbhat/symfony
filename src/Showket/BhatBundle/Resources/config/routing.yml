@@ -24,3 +24,15 @@ ShowketBhatBundle_register:
     requirements:
         _method:  GET|POSt
 
+ShowketBhatBundle_information:
+    pattern:  /userinfo
+    defaults: { _controller: ShowketBhatBundle:Userinfo:info }
+    requirements:
+        _method:  GET
+
+
+ShowketBhatBundle_registeruser:
+    pattern:  /register_user
+    defaults: { _controller: ShowketBhatBundle:Userinfo:register }
+    requirements:
+        _method:  GET|POSt

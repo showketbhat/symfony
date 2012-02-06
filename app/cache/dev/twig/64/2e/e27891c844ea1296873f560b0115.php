@@ -52,20 +52,20 @@ class __TwigTemplate_642ee27891c844ea1296873f560b0115 extends Twig_Template
                     ";
         // line 22
         $this->displayBlock('navigation', $context, $blocks);
-        // line 35
+        // line 37
         echo "                </div>
 \t    </header>
 \t\t <section class=\"main-col\">
         \t        ";
-        // line 38
+        // line 40
         $this->displayBlock('body', $context, $blocks);
-        // line 39
+        // line 41
         echo "\t         </section>
 \t\t <aside class=\"sidebar\">
         \t        ";
-        // line 41
+        // line 43
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 42
+        // line 44
         echo "\t         </aside>
 \t</section>
     </body>
@@ -116,8 +116,16 @@ class __TwigTemplate_642ee27891c844ea1296873f560b0115 extends Twig_Template
         // line 30
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_register"), "html", null, true);
         echo "\">Registration</a></li>
-           \t\t\t <li><a href=\"";
+\t\t\t\t <li><a href=\"";
         // line 31
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_registeruser"), "html", null, true);
+        echo "\">Fill Users Form</a></li>
+\t\t\t\t <li><a href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShowketBhatBundle_information"), "html", null, true);
+        echo "\">Users</a></li>
+           \t\t\t <li><a href=\"";
+        // line 33
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage"), "html", null, true);
         echo "\">Go To Bloger</a></li>
                             </ul>
@@ -125,12 +133,12 @@ class __TwigTemplate_642ee27891c844ea1296873f560b0115 extends Twig_Template
                     ";
     }
 
-    // line 38
+    // line 40
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 41
+    // line 43
     public function block_sidebar($context, array $blocks = array())
     {
     }

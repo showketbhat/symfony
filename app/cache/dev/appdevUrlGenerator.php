@@ -36,6 +36,8 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'ShowketBhatBundle_movies' => true,
        'ShowketBhatBundle_song' => true,
        'ShowketBhatBundle_register' => true,
+       'ShowketBhatBundle_information' => true,
+       'ShowketBhatBundle_registeruser' => true,
        'BloggerBlogBundle_homepage' => true,
        'BloggerBlogBundle_about' => true,
        'BloggerBlogBundle_contact' => true,
@@ -177,6 +179,16 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getShowketBhatBundle_registerRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\MyController::registerAction',), array (  '_method' => 'GET|POSt',), array (  0 =>   array (    0 => 'text',    1 => '/showket/register',  ),));
+    }
+
+    private function getShowketBhatBundle_informationRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\UserinfoController::infoAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/showket/userinfo',  ),));
+    }
+
+    private function getShowketBhatBundle_registeruserRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Showket\\BhatBundle\\Controller\\UserinfoController::registerAction',), array (  '_method' => 'GET|POSt',), array (  0 =>   array (    0 => 'text',    1 => '/showket/register_user',  ),));
     }
 
     private function getBloggerBlogBundle_homepageRouteInfo()
