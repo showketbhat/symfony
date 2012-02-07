@@ -11,10 +11,20 @@ use Blogger\BlogBundle\Form\EnquiryType;
 
 
 
+// src/Blogger/BlogBundle/Controller/PageController.php
 class PageController extends Controller
 {
-    public function indexAction(){
-        return $this->render('BloggerBlogBundle:Page:index.html.twig');
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()
+                   ->getEntityManager();
+
+        $blogs = $em->getRepository('BloggerBlogBundle:Blog')
+                    ->getLatestBlogs();
+
+        return $this->render('BloggerBlogBundle:Page:index.html.twig', array(
+            'blogs' => $blogs
+        ));
     }
 
 //My Second function for about us page.

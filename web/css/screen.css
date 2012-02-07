@@ -27,3 +27,10 @@ body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px;
 
 #footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa; }
 
+
+.comments { clear: both; }
+.comments.odd { background: #eee; }
+.comments.comment { padding: 20px; }
+.comments.comment p { margin-bottom: 0; }
+.comments h3 { background: #eee; padding: 10px; font-size: 20px; margin-bottom: 20px; clear: both; }
+.comments .previous-comments { margin-bottom: 20px; }

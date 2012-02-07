@@ -234,6 +234,16 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_BloggerBlogBundle_contact:
 
+        // BloggerBlogBundle_comment_create
+        if (0 === strpos($pathinfo, '/comment') && preg_match('#^/comment/(?P<blog_id>\\d+)$#xs', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_BloggerBlogBundle_comment_create;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\CommentController::createAction',)), array('_route' => 'BloggerBlogBundle_comment_create'));
+        }
+        not_BloggerBlogBundle_comment_create:
+
         // BloggerBlogBundle_blog_show
         if (preg_match('#^/(?P<id>\\d+)$#xs', $pathinfo, $matches)) {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {

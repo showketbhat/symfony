@@ -3,11 +3,12 @@
 
 namespace Blogger\BlogBundle\DataFixtures\ORM;
 
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Blogger\BlogBundle\Entity\Blog;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class BlogFixtures implements FixtureInterface
+class BlogFixtures extends AbstractFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -62,6 +63,15 @@ class BlogFixtures implements FixtureInterface
         $manager->persist($blog5);
 
         $manager->flush();
-    }
 
+	$this->addReference('blog-1', $blog1);
+        $this->addReference('blog-2', $blog2);
+        $this->addReference('blog-3', $blog3);
+        $this->addReference('blog-4', $blog4);
+        $this->addReference('blog-5', $blog5);
+    }
+	public function getOrder()
+    {
+        return 1;
+    }
 }
