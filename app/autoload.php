@@ -8,6 +8,8 @@ $loader->registerNamespaces(array(
     'Doctrine\\Common\\DataFixtures'    => __DIR__.'/../vendor/doctrine-fixtures/lib',
     'Doctrine\\Common'                  => __DIR__.'/../vendor/doctrine-common/lib',
 
+    'Elnur'            => __DIR__.'/../vendor/bundles',
+
     'Doctrine\\DBAL\\Migrations' => __DIR__.'/../vendor/doctrine-migrations/lib',
     'Doctrine\\DBAL'             => __DIR__.'/../vendor/doctrine-dbal/lib',
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
@@ -47,4 +49,8 @@ AnnotationRegistry::registerFile(__DIR__.'/../vendor/doctrine/lib/Doctrine/ORM/M
 // the lazy loading of the init file (which is expensive)
 require_once __DIR__.'/../vendor/swiftmailer/lib/classes/Swift.php';
 Swift::registerAutoload(__DIR__.'/../vendor/swiftmailer/lib/swift_init.php');
+
+
+
+
 

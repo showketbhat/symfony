@@ -13,12 +13,12 @@ class UserinfoForm extends AbstractType
     {
         $builder->add('name', 'text', array('label'  => 'Full Name',));
 		$builder->add('username');
-		$builder->add('password');
+		$builder->add('password', 'password', array('label'  => 'Password',));
     }
 
     public function getName()
     {
         return 'userinfo';
-	// This method returns the value for forms input type text name = register[fieldname]
+	// This method returns the value for forms input type text name = register[fieldname] (Showket Bhat)
     }
 }

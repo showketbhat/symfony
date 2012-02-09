@@ -8,6 +8,7 @@
     <parameter key="kernel.cache_dir">/opt/lampp/htdocs/symfony/app/cache/dev</parameter>
     <parameter key="kernel.logs_dir">/opt/lampp/htdocs/symfony/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
+      <parameter key="ElnurBlowfishPasswordEncoderBundle">Elnur\BlowfishPasswordEncoderBundle\ElnurBlowfishPasswordEncoderBundle</parameter>
       <parameter key="DoctrineMigrationsBundle">Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -44,6 +45,8 @@
     <parameter key="mailer_encryption">ssl</parameter>
     <parameter key="mailer_auth_mode">login</parameter>
     <parameter key="blogger_blog.emails.contact_email">manusurya9139@gmail.com</parameter>
+    <parameter key="security.encoder.blowfish.class">Elnur\BlowfishPasswordEncoderBundle\Security\Encoder\BlowfishPasswordEncoder</parameter>
+    <parameter key="security.encoder.blowfish.cost">15</parameter>
     <parameter key="doctrine_migrations.dir_name">/opt/lampp/htdocs/symfony/app/DoctrineMigrations</parameter>
     <parameter key="doctrine_migrations.namespace">Application\Migrations</parameter>
     <parameter key="doctrine_migrations.table_name">migration_versions</parameter>
@@ -425,6 +428,9 @@
     </parameter>
   </parameters>
   <services>
+    <service id="security.encoder.blowfish" class="Elnur\BlowfishPasswordEncoderBundle\Security\Encoder\BlowfishPasswordEncoder">
+      <argument>15</argument>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -1731,6 +1737,33 @@
               <argument type="service">
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
+                  <argument>ElnurBlowfishPasswordEncoderBundle</argument>
+                  <argument>/opt/lampp/htdocs/symfony/app/Resources/ElnurBlowfishPasswordEncoderBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>ElnurBlowfishPasswordEncoderBundle</argument>
+                  <argument>/opt/lampp/htdocs/symfony/vendor/bundles/Elnur/BlowfishPasswordEncoderBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
                   <argument>DoctrineMigrationsBundle</argument>
                   <argument>/opt/lampp/htdocs/symfony/app/Resources/DoctrineMigrationsBundle/views</argument>
                   <argument>/^[^.]+\.[^.]+\.twig$/</argument>
@@ -2447,12 +2480,7 @@
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
       <argument type="collection">
-        <argument key="Symfony\Component\Security\Core\User\User" type="collection">
-          <argument key="class">%security.encoder.plain.class%</argument>
-          <argument key="arguments" type="collection">
-            <argument>false</argument>
-          </argument>
-        </argument>
+        <argument key="Symfony\Component\Security\Core\User\User" type="service" id="security.encoder.blowfish"/>
       </argument>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">

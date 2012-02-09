@@ -96,7 +96,8 @@ class User_Info
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+	$passwordHash = sha1($password);
+        $this->password = $passwordHash;
     }
 
     /**
@@ -106,6 +107,7 @@ class User_Info
      */
     public function getPassword()
     {
-        return $this->password;
+	$passwordHash = sha1($this->password);
+        return $passwordHash;
     }
 }

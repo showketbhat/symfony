@@ -72,6 +72,7 @@ class appDevDebugProjectContainer extends Container
 
         $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/opt/lampp/htdocs/symfony/app/cache/dev/assetic/config'), true)));
 
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'ElnurBlowfishPasswordEncoderBundle', '/opt/lampp/htdocs/symfony/app/Resources/ElnurBlowfishPasswordEncoderBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'ElnurBlowfishPasswordEncoderBundle', '/opt/lampp/htdocs/symfony/vendor/bundles/Elnur/BlowfishPasswordEncoderBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineMigrationsBundle', '/opt/lampp/htdocs/symfony/app/Resources/DoctrineMigrationsBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineMigrationsBundle', '/opt/lampp/htdocs/symfony/vendor/bundles/Symfony/Bundle/DoctrineMigrationsBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', '/opt/lampp/htdocs/symfony/app/Resources/FrameworkBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', '/opt/lampp/htdocs/symfony/vendor/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', '/opt/lampp/htdocs/symfony/app/Resources/SecurityBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', '/opt/lampp/htdocs/symfony/vendor/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
@@ -1192,6 +1193,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'security.encoder.blowfish' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Elnur\BlowfishPasswordEncoderBundle\Security\Encoder\BlowfishPasswordEncoder A Elnur\BlowfishPasswordEncoderBundle\Security\Encoder\BlowfishPasswordEncoder instance.
+     */
+    protected function getSecurity_Encoder_BlowfishService()
+    {
+        return $this->services['security.encoder.blowfish'] = new \Elnur\BlowfishPasswordEncoderBundle\Security\Encoder\BlowfishPasswordEncoder(15);
+    }
+
+    /**
      * Gets the 'security.encoder_factory' service.
      *
      * This service is shared.
@@ -1201,7 +1215,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_EncoderFactoryService()
     {
-        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false))));
+        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => $this->get('security.encoder.blowfish')));
     }
 
     /**
@@ -2127,6 +2141,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.cache_dir' => '/opt/lampp/htdocs/symfony/app/cache/dev',
             'kernel.logs_dir' => '/opt/lampp/htdocs/symfony/app/logs',
             'kernel.bundles' => array(
+                'ElnurBlowfishPasswordEncoderBundle' => 'Elnur\\BlowfishPasswordEncoderBundle\\ElnurBlowfishPasswordEncoderBundle',
                 'DoctrineMigrationsBundle' => 'Symfony\\Bundle\\DoctrineMigrationsBundle\\DoctrineMigrationsBundle',
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -2163,6 +2178,8 @@ class appDevDebugProjectContainer extends Container
             'mailer_encryption' => 'ssl',
             'mailer_auth_mode' => 'login',
             'blogger_blog.emails.contact_email' => 'manusurya9139@gmail.com',
+            'security.encoder.blowfish.class' => 'Elnur\\BlowfishPasswordEncoderBundle\\Security\\Encoder\\BlowfishPasswordEncoder',
+            'security.encoder.blowfish.cost' => 15,
             'doctrine_migrations.dir_name' => '/opt/lampp/htdocs/symfony/app/DoctrineMigrations',
             'doctrine_migrations.namespace' => 'Application\\Migrations',
             'doctrine_migrations.table_name' => 'migration_versions',

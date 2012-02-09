@@ -2,8 +2,26 @@
 
 {% block body %}this is my userinfo html file <p>
 Where Ever U ll Go I am Gonna Follow You <p>
-{% for item in info %}
- {{ item.id }} 	        Name  = 	{{ item.name }} <p>
-{% endfor %}
+
+{% if info %}
+	{% for item in info %}
+
+	 <header id="header">
+                <div class="top">
+			<h3> {{ item.id }}.    Name = {{ item.name }} <p></h3>
+		</div>
+	 </header>
+	{% endfor %}
+
+{% else %}
+            <header id="header">
+                <div class="top">
+			<h3>There are no Items to Show, Please insert some data in userinfo table <br> and reload the page</h3>
+		</div>
+	    </header>
+
+
+
+{% endif %}
 
 {% endblock %}

@@ -21,7 +21,8 @@ class UserinfoController extends Controller{
 
         $info = $em->getRepository('ShowketBhatBundle:User_Info')->findAll();
         if (!$info) {
-            throw $this->createNotFoundException('Userinfo Table Is Empty.');
+		
+         //   throw $this->createNotFoundException('Userinfo Table Is Empty. Please put some data in userinfo Table');
         }
 
         return $this->render('ShowketBhatBundle:My:userinfo.html.twig', array(
@@ -38,13 +39,23 @@ class UserinfoController extends Controller{
 	$form->bindRequest($request);
 
 	if ($form->isValid()) {
+
+	    $em = $this->getDoctrine()
+                       ->getEntityManager();
+            $em->persist($register);
+            $em->flush();
+
+           return $this->redirect($this->generateUrl('ShowketBhatBundle_information'));
+        }
+
+
 		//echo "yes"; exit;
 	    // Perform some action, such as sending an email
 
 	    // Redirect - This is important to prevent users re-posting
 	    // the form if they refresh the page
-	    return $this->redirect($this->generateUrl('ShowketBhatBundle_information'));
-	}
+	//    return $this->redirect($this->generateUrl('ShowketBhatBundle_information'));
+//	}
 	}
 	//echo "NO";
 	 return $this->render('ShowketBhatBundle:My:userinfoform.html.twig', array(

@@ -87,3 +87,9 @@
     git=http://github.com/symfony/DoctrineMigrationsBundle.git
     target=/bundles/Symfony/Bundle/DoctrineMigrationsBundle
 
+
+
+[ElnurBlowfishPasswordEncoderBundle]
+            git=http://github.com/elnur/ElnurBlowfishPasswordEncoderBundle.git
+            target=/bundles/Elnur/BlowfishPasswordEncoderBundle
+
